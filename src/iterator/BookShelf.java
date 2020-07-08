@@ -1,24 +1,25 @@
 package iterator;
 
+import java.util.Vector;
+
 public class BookShelf implements Aggregate {
-    private Book[] books;
+    private Vector<Book> books;
     private int last = 0;
 
-    public BookShelf(int maxsize) {
-        this.books = new Book[maxsize];
+    public BookShelf() {
+        this.books = new Vector<>();
     }
 
     public Book getBookAt(int index) {
-        return books[index];
+        return books.elementAt(index);
     }
 
     public void appendBook(Book book) {
-        this.books[last] = book;
-        last++;
+        this.books.add(book);
     }
 
     public int getLength() {
-        return last;
+        return this.books.size();
     }
 
     @Override
