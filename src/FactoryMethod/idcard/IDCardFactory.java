@@ -10,7 +10,7 @@ public class IDCardFactory extends Factory {
 
     @Override
     protected Product createProduct(String owner) {
-        return new IDCard(owner);
+        return new IDCard(owners.size(), owner);
     }
 
     @Override
