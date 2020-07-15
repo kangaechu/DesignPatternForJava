@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class HtmlBuilder implements Builder {
+public class HtmlBuilder extends Builder {
     private String filename;
     private PrintWriter writer;
 
