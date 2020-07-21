@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        RandomDisplay d1 = new RandomDisplay(new StringDisplayImpl("Hello, Japan."));
-        d1.randomDisplay(5);
+        CountDisplay d1 = new CountDisplay(new FileDisplayImpl("src/bridge/display.txt"));
+        d1.display();
     }
 }
