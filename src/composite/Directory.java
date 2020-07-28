@@ -1,26 +1,23 @@
 package composite;
 
-import iterator.Iterator;
-
-import java.util.Vector;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 public class Directory extends Entry {
-    private final String name;
-    private final Vector<Entry> directory = new Vector<>();
+    private String name;                    // ディレクトリの名前
+    private ArrayList directory = new ArrayList();      // ディレクトリエントリの集合
 
-    public Directory(String name) {
+    public Directory(String name) {         // コンストラクタ
         this.name = name;
     }
 
-    @Override
-    public String getName() {
+    public String getName() {               // 名前を得る
         return name;
     }
 
-    @Override
-    public int getSize() {
+    public int getSize() {                  // サイズを得る
         int size = 0;
-        Iterator<Entry> it = (Iterator<Entry>) directory.iterator();
+        Iterator it = directory.iterator();
         while (it.hasNext()) {
             Entry entry = (Entry) it.next();
             size += entry.getSize();
@@ -28,15 +25,14 @@ public class Directory extends Entry {
         return size;
     }
 
-    public Entry add(Entry entry) {
+    public Entry add(Entry entry) {         // エントリの追加
         directory.add(entry);
         return this;
     }
 
-    @Override
-    protected void printList(String prefix) {
+    protected void printList(String prefix) {       // エントリの一覧
         System.out.println(prefix + "/" + this);
-        Iterator<Entry> it = (Iterator<Entry>) directory.iterator();
+        Iterator it = directory.iterator();
         while (it.hasNext()) {
             Entry entry = (Entry) it.next();
             entry.printList(prefix + "/" + name);
